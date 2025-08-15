@@ -44,10 +44,99 @@ It provides endpoints for user authentication, managing students, departments, a
 The project follows the standard conventions for a Spring Boot application, promoting a clean and layered architecture.
 ---
 ```
+Directory structure:
+└── main/
+    ├── java/
+    │   └── com/
+    │       └── college/
+    │           └── duemanagement/
+    │               ├── DueManagementApplication.java
+    │               ├── controller/
+    │               │   ├── AuthController.java
+    │               │   ├── DashboardController.java
+    │               │   ├── DepartmentController.java
+    │               │   ├── DueController.java
+    │               │   ├── NoDuesCertificateController.java
+    │               │   ├── ProfileController.java
+    │               │   ├── StudentController.java
+    │               │   └── UserController.java
+    │               ├── dto/
+    │               │   ├── ActivityDto.java
+    │               │   ├── CreateDepartmentRequest.java
+    │               │   ├── CreateDueRequest.java
+    │               │   ├── CreateUserRequest.java
+    │               │   ├── DashboardStatsDto.java
+    │               │   ├── DepartmentDto.java
+    │               │   ├── DepartmentSignatureDto.java
+    │               │   ├── DepartmentStatDto.java
+    │               │   ├── DueDto.java
+    │               │   ├── JwtResponse.java
+    │               │   ├── LoginRequest.java
+    │               │   ├── MessageResponse.java
+    │               │   ├── NoDueCertificateDto.java
+    │               │   ├── NoDuesCertificateDto.java
+    │               │   └── UserDto.java
+    │               ├── entity/
+    │               │   ├── Department.java
+    │               │   ├── DepartmentSignature.java
+    │               │   ├── Due.java
+    │               │   ├── NoDuesCertificate.java
+    │               │   ├── Role.java
+    │               │   ├── Student.java
+    │               │   └── User.java
+    │               ├── enums/
+    │               │   └── DepartmentEnum.java
+    │               ├── exception/
+    │               │   ├── BadRequestException.java
+    │               │   ├── GlobalExceptionHandler.java
+    │               │   └── ResourceNotFoundException.java
+    │               ├── payload/
+    │               │   ├── request/
+    │               │   │   ├── CreateStudentRequest.java
+    │               │   │   ├── CreateUserRequest.java
+    │               │   │   ├── ProfileUpdateRequest.java
+    │               │   │   ├── UpdateStudentRequest.java
+    │               │   │   └── UpdateUserRequest.java
+    │               │   └── response/
+    │               │       └── JwtResponse.java
+    │               ├── repository/
+    │               │   ├── DepartmentRepository.java
+    │               │   ├── DepartmentSignatureRepository.java
+    │               │   ├── DueRepository.java
+    │               │   ├── NoDuesCertificateRepository.java
+    │               │   ├── RoleRepository.java
+    │               │   ├── StudentRepository.java
+    │               │   └── UserRepository.java
+    │               ├── response/
+    │               │   └── ApiResponse.java
+    │               ├── security/
+    │               │   ├── WebSecurityConfig.java
+    │               │   ├── jwt/
+    │               │   │   ├── AuthEntryPointJwt.java
+    │               │   │   ├── AuthTokenFilter.java
+    │               │   │   └── JwtUtils.java
+    │               │   └── services/
+    │               │       ├── UserDetailsImpl.java
+    │               │       └── UserDetailsServiceImpl.java
+    │               └── service/
+    │                   ├── DueService.java
+    │                   ├── EmailService.java
+    │                   ├── NoDuesCertificateService.java
+    │                   ├── StudentService.java
+    │                   ├── UserService.java
+    │                   └── impl/
+    │                       ├── DueServiceImpl.java
+    │                       └── NoDuesCertificateServiceImpl.java
+    └── resources/
+        ├── application-deploy.properties
+        ├── application-docker.properties
+        ├── application.properties
+        ├── META-INF/
+        │   └── additional-spring-configuration-metadata.json
+        └── templates/
+            └── email/
+                └── credentials.html
 ```
----
----
-
 ---
 
 ## 🔑 API Endpoints Overview
