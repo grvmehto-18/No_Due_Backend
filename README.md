@@ -42,4 +42,63 @@ It provides endpoints for user authentication, managing students, departments, a
 ## 🏛️ Project Structure Explained
 
 The project follows the standard conventions for a Spring Boot application, promoting a clean and layered architecture.
+---
+```
+```
+---
+---
 
+---
+
+## 🔑 API Endpoints Overview
+
+The API is organized by resource. Here is a high-level summary of the available endpoints:
+
+* **Authentication (`/api/auth`)**: Handles user login and registration.
+* **Users (`/api/users`)**: CRUD operations for managing system users.
+* **Students (`/api/students`)**: CRUD operations for managing student records.
+* **Departments (`/api/departments`)**: Manages college departments.
+* **Dues (`/api/dues`)**: Manages the creation, updating, and payment of student dues.
+* **Certificates (`/api/certificates`)**: Manages the No Dues certificate request and approval workflow.
+* **Dashboard (`/api/dashboard`)**: Provides summary data and statistics.
+* **Profile (`/api/profile`)**: Allows users to view and update their own profiles.
+
+> #### **⭐ Best Practice: API Documentation**
+> For detailed, interactive API documentation, it is highly recommended to add the **SpringDoc OpenAPI** dependency to your `pom.xml`. This will automatically generate a Swagger UI page where you can view and test all endpoints live.
+>
+> ```xml
+> <dependency>
+>     <groupId>org.springdoc</groupId>
+>     <artifactId>springdoc-openapi-starter-webmvc-ui</artifactId>
+>     <version>2.5.0</version>
+> </dependency>
+> ```
+
+---
+
+## ⚙️ Configuration
+
+Application settings are managed in `src/main/resources/application.properties`. For local development, you should create a new profile (e.g., `application-dev.properties`) or override the default properties.
+
+**Key properties to configure:**
+
+```properties
+# --- Database Configuration ---
+# Example for PostgreSQL
+spring.datasource.url=jdbc:postgresql://localhost:5432/your_db_name
+spring.datasource.username=your_db_user
+spring.datasource.password=your_db_password
+spring.jpa.hibernate.ddl-auto=update # Use 'validate' in production
+
+# --- JWT Secret ---
+# A strong, long, random secret key for signing JWTs
+app.jwtSecret=your-super-secret-key-that-is-very-long
+app.jwtExpirationMs=86400000 # 24 hours
+
+# --- Email Server (SMTP) ---
+spring.mail.host=smtp.example.com
+spring.mail.port=587
+spring.mail.username=your-email@example.com
+spring.mail.password=your-email-password
+spring.mail.properties.mail.smtp.auth=true
+spring.mail.properties.mail.smtp.starttls.enable=true
